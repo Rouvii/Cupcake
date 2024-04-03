@@ -1,7 +1,80 @@
 /* Stylesheet for the application */
 
+
 h1 {
     color: #369;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 3rem;
 }
+
+.banner {
+    background-color: #B09F7E;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+body {
+    background-color: #DDAE82;
+    padding: 20px;
+    margin: 0;
+}
+
+.summary-header {
+    color: white;
+    text-align: center;
+}
+
+.summary-container {
+    color: white;
+    max-width: 800px;
+    margin: 100px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.summary-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.summary-form label {
+    font-weight: bold;
+    flex-basis: 100%;
+    margin-top: 5px;
+}
+
+.summary-form input[type="text"],
+.summary-form input[type="email"],
+.summary-form select {
+    flex-basis: calc(50% - 10px);
+    padding: 8px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    outline: none;
+    width: 97.5%;
+
+}
+
+.summary-form input[type="submit"]{
+    width: 100%;
+    padding: 10px;
+    background-color: #B09F7E;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+
+
