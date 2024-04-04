@@ -1,7 +1,9 @@
 package app.controllers;
+import app.entities.Order;
 import app.entities.User;
 import app.exceptions.DatabaseException;
 import app.entities.ConnectionPool;
+import app.persistence.OrderMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
@@ -24,7 +26,9 @@ public class AdminController {
         User user = ctx.sessionAttribute("currentUser");
         try{
 
-
+            List<Order> orderList = OrderMapper.getAllOrders(connectionPool);
+            System.out.println(orderList);
+            ctx.attribute("orderlist",orderList);
             ctx.render("/adminpage.html");
 
         } catch (Exception e) {

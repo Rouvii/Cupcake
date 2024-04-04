@@ -1,5 +1,7 @@
 package app.persistence;
 
+import app.entities.ConnectionPool;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +16,7 @@ import java.sql.SQLException;
 public class KurvMapper {
 
 
-    public static int getTotalPriceOfBasket(int userId,ConnectionPool connectionPool) {
+    public static int getTotalPriceOfBasket(int userId, ConnectionPool connectionPool) {
         String sql = "SELECT SUM(total_price) " +
                 "FROM users u " +
                 "JOIN \"order\" o ON u.user_id = o.fk_user " +
