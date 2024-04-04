@@ -22,6 +22,10 @@ body {
     margin: 0;
 }
 
+
+.container-wrapper {
+    display: flex;
+}
 .summary-header {
     color: white;
     text-align: center;
@@ -72,6 +76,27 @@ body {
     cursor: pointer;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
+}
+
+.order-container {
+    color: white;
+    max-width: 800px;
+    margin: 100px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.order-header {
+    color: white;
+    text-align: center;
+}
+
+.order-view {
+    width: 100%;
+    padding: 10px;
+    position: -ms-device-fixed;
+    display: table-row;
 }
 
 
