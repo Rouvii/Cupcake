@@ -24,8 +24,8 @@ public class UserMapper {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 int id = rs.getInt("user_id");
-                String role = rs.getString("role");
-                return new User(id, userName, password, role);
+                boolean admin = rs.getBoolean("admin");
+                return new User(id, userName, password, admin);
             } else {
                 throw new DatabaseException("Fejl i login. Prøv igen");
             }
