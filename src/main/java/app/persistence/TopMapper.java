@@ -32,7 +32,7 @@ public class TopMapper {
             while (rs.next()) {
                 String name = rs.getString("top");
                 int price = rs.getInt("top_price");
-                System.out.println("Retrieved name: " + name + ", price: " + price); // Add this line for debugging
+
                 topList.add(new Top(name, price));
             }
 

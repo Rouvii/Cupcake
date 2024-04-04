@@ -33,7 +33,7 @@ public class BottomMapper {
             while (rs.next()) {
                 String name = rs.getString("bottom");
                 int price = rs.getInt("bottom_price");
-                System.out.println("Retrieved name: " + name + ", price: " + price); // Add this line for debugging
+
                 bottomList.add(new Bottom(name, price));
             }
 
