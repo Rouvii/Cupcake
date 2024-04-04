@@ -1,4 +1,4 @@
-package app.persistence;
+package app.entities;
 
 /**
  * @author Daniel Rouvillain
