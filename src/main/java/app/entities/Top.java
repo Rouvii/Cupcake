@@ -16,6 +16,13 @@ public class Top {
         this.topPrice = topPrice;
     }
 
+
+
+    public Top(String name, int price) {
+        this.top = top;
+        this.topPrice = topPrice;
+    }
+
     public int getTopId() {
         return topId;
     }
@@ -28,7 +35,11 @@ public class Top {
         return topPrice;
     }
 
-
-
-
+    @Override
+    public String toString() {
+        return "Top{" +
+                ", top='" + top + '\'' +
+                ", topPrice=" + topPrice +
+                '}';
+    }
 }
