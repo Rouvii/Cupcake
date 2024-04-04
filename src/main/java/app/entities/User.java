@@ -3,14 +3,14 @@ package app.entities;
 public class User
 {
     private int userId;
-    private String userName;
+    private String email;
     private String password;
     private boolean admin;
 
-    public User(int userId, String userName, String password, boolean admin)
+    public User(int userId, String email, String password, boolean admin)
     {
         this.userId = userId;
-        this.userName = userName;
+        this.email = email;
         this.password = password;
         this.admin = admin;
     }
@@ -23,7 +23,7 @@ public class User
 
     public String getUserName()
     {
-        return userName;
+        return email;
     }
 
     public String getPassword()
@@ -41,7 +41,7 @@ public class User
     {
         return "User{" +
                 "userId=" + userId +
-                ", userName='" + userName + '\'' +
+                ", userName='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", role='" + admin + '\'' +
                 '}';
