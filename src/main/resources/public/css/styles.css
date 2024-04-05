@@ -103,3 +103,9 @@ body {
 
 
 
+.login_header {
+    border: solid red 1px;
+    margin-bottom: 20px;
+    padding-bottom: 50px;
+}
+

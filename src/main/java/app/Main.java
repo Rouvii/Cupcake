@@ -1,9 +1,17 @@
 package app;
 
 import app.config.ThymeleafConfig;
-import app.persistence.ConnectionPool;
+import app.controllers.AdminController;
+import app.controllers.UserController;
+import app.entities.Bottom;
+import app.entities.ConnectionPool;
+import app.entities.Top;
+import app.persistence.BottomMapper;
+import app.persistence.TopMapper;
 import io.javalin.Javalin;
 import io.javalin.rendering.template.JavalinThymeleaf;
+
+import java.util.List;
 
 public class Main {
     private static final String USER = "postgres";
@@ -23,7 +31,19 @@ public class Main {
 
         // Routing
 
+
         app.get("/", ctx -> ctx.render("index.html"));
+        AdminController.addRoutes(app,connectionPool);
+        UserController.addRoutes(app,connectionPool);
 
     }
+
+
+
+
+
+
+
+
 }
+
