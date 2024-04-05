@@ -2,6 +2,7 @@
 import app.entities.*;
 import app.exceptions.DatabaseException;
 import app.persistence.*;
+import io.javalin.Javalin;
 import io.javalin.http.Context;
 
 import java.util.ArrayList;
@@ -10,15 +11,24 @@ import java.util.List;
 
 public class OrderController {
 
+    public static void addRoutes(Javalin app, ConnectionPool connectionPool)
+    {
+        app.post("/createorder", ctx -> OrderController.createOrders(ctx, connectionPool));
+        app.post("deleteOrderlines", ctx -> deleteOrderlines((Orderline) ctx, (Context) connectionPool));
+        /*app.get("/order", ctx -> {
+            OrderController.allTops(ctx, connectionPool);
+            OrderController.allBottoms(ctx, connectionPool);
+            ctx.render("order.html");*/
+    }
 
-    public void deleteOrderlines(Orderline orderline, Context ctx) {
+    public static void deleteOrderlines(Orderline orderline, Context ctx) {
 
         User user = ctx.sessionAttribute("currentUser");
         Cart cart = ctx.sessionAttribute("cart");
         //tager den aktive user og hans cart og sætter dem til variabler
 
         if (cart != null) {
-            List<Orderline> newOrderline =cart.getCartItems();
+            List<Orderline> newOrderline = cart.getCartItems();
             //hvis cart IKKE er tom, henter den brugerens varer
 
             newOrderline.remove(orderline);
@@ -51,7 +61,7 @@ public class OrderController {
         Cart cart = ctx.sessionAttribute("cart");
         if (cart != null) {
             ctx.attribute("orderlineArrayList", cart.getCartItems());
-            ctx.render("payment.html");
+            ctx.render(".html");
         }
     }
 }
