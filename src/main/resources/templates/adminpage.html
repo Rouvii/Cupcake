@@ -21,20 +21,23 @@
     <table class="order-table">
         <thead>
         <tr>
-            <th>Orders</th>
             <th>User</th>
+            <th>Order id</th>
             <th>Price</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="order: ${orderlist}">
-
-            <td th:text="${order.orderId}">Order id</td>
+        <tr th:each="order: ${orderList}">
             <td th:text="${order.userId}">User</td>
+            <td th:text="${order.orderId}">Order id</td>
             <td th:text="${order.finalPrice}">Price</td>
 
-
-
+            <td>
+                <div class="button">
+                    <button type="submit" name="orderId" th:value="${order.orderId}" formaction="/deleteorder">Delete
+                    </button>
+                </div>
+            </td>
         </tr>
 
         </tbody>
