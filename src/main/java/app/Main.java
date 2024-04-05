@@ -2,6 +2,7 @@ package app;
 
 import app.config.ThymeleafConfig;
 import app.controllers.AdminController;
+import app.controllers.OrderController;
 import app.controllers.UserController;
 import app.entities.Bottom;
 import app.entities.ConnectionPool;
@@ -16,7 +17,7 @@ import java.util.List;
 public class Main {
     private static final String USER = "postgres";
     private static final String PASSWORD = "postgres";
-    private static final String URL = "jdbc:postgresql://localhost:5433/%s?currentSchema=public";
+    private static final String URL = "jdbc:postgresql://localhost:5432/%s?currentSchema=public";
     private static final String DB = "cupcake";
 
     private static final ConnectionPool connectionPool = ConnectionPool.getInstance(USER, PASSWORD, URL, DB);
@@ -35,7 +36,7 @@ public class Main {
         app.get("/", ctx -> ctx.render("index.html"));
         AdminController.addRoutes(app,connectionPool);
         UserController.addRoutes(app,connectionPool);
-
+        OrderController.addRoutes(app,connectionPool);
     }
 
 

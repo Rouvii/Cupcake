@@ -2,6 +2,7 @@
 import app.entities.*;
 import app.exceptions.DatabaseException;
 import app.persistence.*;
+import io.javalin.Javalin;
 import io.javalin.http.Context;
 
 import java.util.ArrayList;
@@ -10,6 +11,27 @@ import java.util.List;
 
 public class OrderController {
 
+    public static void addRoutes(Javalin app, ConnectionPool connectionPool)
+    {
+
+        app.get("menupage", ctx -> menupage(ctx, connectionPool));
+    }
+
+    private static void menupage(Context ctx, ConnectionPool connectionPool)
+    {
+        User user = ctx.sessionAttribute("currentUser");
+        try{
+
+            allTops(ctx,connectionPool);
+            allBottoms(ctx,connectionPool);
+            ctx.render("/menupage.html");
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
 
     public void deleteOrderlines(Orderline orderline, Context ctx) {
 
@@ -30,18 +52,15 @@ public class OrderController {
     }
     //henter tops og sætter det i en arrayliste, listen bliver sat i ctx objektet.
     public static void allTops(Context ctx, ConnectionPool connectionPool) {
-
         List<Top> topList = new ArrayList<>(TopMapper.getAllTops(connectionPool));
         ctx.attribute("topList", topList);
-
     }
+
     // samme som før 🤣🔥🔥🔥💯💯 + exception handling
     public static void allBottoms(Context ctx, ConnectionPool connectionPool) {
-
         try {
-            List<Bottom> bottomsList =  new ArrayList<>( BottomMapper.getAllBottoms(connectionPool));
-            ctx.attribute("Bottoms", bottomsList);
-
+            List<Bottom> bottomsList =  new ArrayList<>(BottomMapper.getAllBottoms(connectionPool));
+            ctx.attribute("bottomsList", bottomsList);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
