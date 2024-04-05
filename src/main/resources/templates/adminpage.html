@@ -17,17 +17,33 @@
 </div>
 
 
-<form class="generic-form" method="post">
-    <input type="text" name="username" placeholder="Enter your username"/>
-    <input type="password" name="password" placeholder="Enter your password"/>
-    <button class="btn btn-ok" type="submit" formaction="/login">Login</button>
-    <div><p class="error" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></p></div>
+< <form method="post">
+    <table class="order-table">
+        <thead>
+        <tr>
+            <th>User</th>
+            <th>Order id</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="order: ${orderList}">
+            <td th:text="${order.userId}">User</td>
+            <td th:text="${order.orderId}">Order id</td>
+            <td th:text="${order.finalPrice}">Price</td>
+
+            <td>
+                <div class="button">
+                    <button type="submit" name="orderId" th:value="${order.orderId}" formaction="/deleteorder">Delete
+                    </button>
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
 </form>
-<div class="logout">
-    <p th:if="${session.currentUser != null}">
-        <span th:text="${session.currentUser.username}">Welcome </span> |
-        <a class="logout-text" href="index.html" th:href="@{/logout}">Logout, You Should</a>
-    </p>
 </div>
 
 </body>
