@@ -52,8 +52,13 @@ public class OrderController {
     }
     //henter tops og sætter det i en arrayliste, listen bliver sat i ctx objektet.
     public static void allTops(Context ctx, ConnectionPool connectionPool) {
+        try {
         List<Top> topList = new ArrayList<>(TopMapper.getAllTops(connectionPool));
         ctx.attribute("topList", topList);
+        System.out.println(topList);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // samme som før 🤣🔥🔥🔥💯💯 + exception handling
@@ -61,6 +66,7 @@ public class OrderController {
         try {
             List<Bottom> bottomsList =  new ArrayList<>(BottomMapper.getAllBottoms(connectionPool));
             ctx.attribute("bottomsList", bottomsList);
+            System.out.println(bottomsList);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
