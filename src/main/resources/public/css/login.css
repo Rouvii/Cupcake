@@ -1,0 +1,90 @@
+/*********************Adminpage styling *********************/
+
+.banner {
+
+    text-align: start;
+    background-color: #B09F7E;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-decoration: none;
+}
+header{
+
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+body {
+
+    display: flex;
+    justify-content: center;
+    background-color: #DDAE82;
+    padding: 70px 20px 20px;
+}
+
+.page {
+    text-align: center;
+
+
+}
+
+.btn-ok {
+    color: white;
+    background-color: #B09F7E;
+    border-radius: 7px;
+    border-color: #B09F7E;
+    white-space: nowrap;
+    font-size: 0.8rem;
+}
+
+.btn-ok:hover {
+
+    background-color: #5b5241;
+    border-color: #5b5241;
+    cursor: pointer;
+}
+
+.logout-link,.create-link{
+    color: #7a6c57;
+    text-decoration: none;
+}
+
+.logout-link:hover,.create-link:hover{
+    color: #eacfa9;
+    text-decoration: none;
+}
+
+.generic-form input{
+    width: 40%;
+    text-align: center;
+    color: #5b5241;
+    border-radius: 7px;
+    border-color: #eacfa9;
+    background-color: transparent;
+    outline: none;
+}
+
+.create{
+
+    width: 500px;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.create-form input {
+    display: flex;
+
+    text-align: center;
+    color: #5b5241;
+    border-radius: 7px;
+    border-color: #eacfa9;
+    background-color: transparent;
+    outline: none;
+    margin-bottom: 10px;
+}
