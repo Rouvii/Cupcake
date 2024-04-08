@@ -5,6 +5,7 @@ import app.exceptions.DatabaseException;
 import app.entities.ConnectionPool;
 import app.persistence.OrderMapper;
 import app.persistence.OrderlineMapper;
+import app.persistence.UserMapper;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
 
@@ -29,7 +30,9 @@ public class AdminController {
         try{
 
             List<Order> orderList = OrderMapper.getAllOrders(connectionPool);
+            List<User> userList = UserMapper.getAllUsers(connectionPool);
             System.out.println(orderList);
+            ctx.attribute("userList",userList);
             ctx.attribute("orderList",orderList);
             ctx.render("/adminpage.html");
 
