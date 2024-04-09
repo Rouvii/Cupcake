@@ -13,45 +13,73 @@
     text-decoration: none;
 }
 
+
+
 body {
 
     background-color: #DDAE82;
-    padding: 70px 20px 20px;
+    padding: 20px;
 }
 
-.page {
+.container-wrapper {
+    display: flex;
+}
+
+
+
+
+.admin-container {
+    color: white;
+    width: 45%;
+    max-width: 800px;
+    margin: 100px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     text-align: center;
-
 }
 
-.tables {
+.users-container {
+
+    color: white;
+    width: 45%;
+    max-width: 800px;
+    margin: 100px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     text-align: center;
-
 }
 
-.order-table,
 .user-table {
-    display: inline-block;
-    border-collapse: collapse;
-    border-radius: 7px;
-    font-size: 1.2rem;
-    width: 15%;
-    margin: 0 5px;
+    width: 100%;
+    padding: 10px;
+    position: -ms-device-fixed;
+    text-align: center;
+}
+.order-table {
+    width: 100%;
+    padding: 10px;
+    position: -ms-device-fixed;
+    text-align: center;
 }
 
 .order-table button {
-    color: white;
-    background-color: #ff0048;
-    border-radius: 7px;
-    border-color: #ff0048;
-    white-space: nowrap;
+    width: 50%;
+    padding: 10px;
+    background-color: #B09F7E;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .order-table button:hover {
-    background-color: #570114;
-    border-color: #570114;
+    background-color: #B09F7E;
+    border-color: #B09F7E;
     border-radius: 7px;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 

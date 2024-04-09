@@ -33,19 +33,21 @@ body {
 }
 
 .btn-ok {
-    color: white;
+    width: 30%;
+    padding: 10px;
     background-color: #B09F7E;
-    border-radius: 7px;
-    border-color: #B09F7E;
-    white-space: nowrap;
-    font-size: 0.8rem;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .btn-ok:hover {
-
-    background-color: #5b5241;
-    border-color: #5b5241;
+    background-color: #B09F7E;
+    border-color: #B09F7E;
+    border-radius: 7px;
     cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .logout-link,.create-link{
@@ -59,32 +61,36 @@ body {
 }
 
 .generic-form input{
-    width: 40%;
     text-align: center;
-    color: #5b5241;
-    border-radius: 7px;
-    border-color: #eacfa9;
-    background-color: transparent;
+    flex-basis: calc(50% - 10px);
+    padding: 8px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-bottom: 10px;
     outline: none;
+    width: 97.5%;
 }
 
-.create{
 
-    width: 500px;
-    display: flex;
-    justify-content: center;
-
-
+.login-container {
+    text-align: center;
+    color: white;
+    width: 50%;
+    max-width: 800px;
+    margin: 100px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
 
 .create-form input {
-    display: flex;
-
-    text-align: center;
-    color: #5b5241;
-    border-radius: 7px;
-    border-color: #eacfa9;
-    background-color: transparent;
-    outline: none;
+    flex-basis: calc(50% - 10px);
+    padding: 8px;
+    border: 1px solid #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
     margin-bottom: 10px;
+    outline: none;
+    width: 97.5%;
 }
