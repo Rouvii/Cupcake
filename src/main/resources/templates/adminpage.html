@@ -1,71 +1,87 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <title>adminpage</title>
+    <title>Cupcake Adminpanel</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../public/css/adminpage.css" th:href="@{/css/adminpage.css}" rel="stylesheet"/>
 </head>
 
-<body>
+
 <div class="page">
-    <a href="index.html" class="banner" th:href="@{/}">  <h2>Cupcake</h2></a>
+    <a href="index.html" class="banner" th:href="@{/}"><h2>Cupcake</h2></a>
+</div>
+<body>
 
 
-    <div class="login-header">
-        <header>
-            <h1>This is adminpage</h1>
-        </header>
+<div class="login-header">
+    <header>
+        <h1>Adminpanel</h1>
+    </header>
+</div>
+
+
+<div class="container-wrapper">
+    <div class="admin-container">
+
+
+        <div class="tables">
+            <h1>Active Orders</h1>
+            <form method="post">
+                <table class="order-table">
+
+                    <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Order id</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="order: ${orderList}">
+                        <td th:text="${order.userId}">User</td>
+                        <td th:text="${order.orderId}">Order id</td>
+                        <td th:text="${order.finalPrice}">Price</td>
+
+                        <td>
+                            <div class="button">
+                                <button type="submit" name="orderId" th:value="${order.orderId}"
+                                        formaction="/deleteorder">
+                                    Delete
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    </tbody>
+
+                </table>
+            </form>
+        </div>
     </div>
 
 
-    <div class="tables">
-        <form method="post">
-            <table class="order-table">
-                <thead>
-                <tr>
-                    <th>User</th>
-                    <th>Order id</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="order: ${orderList}">
-                    <td th:text="${order.userId}">User</td>
-                    <td th:text="${order.orderId}">Order id</td>
-                    <td th:text="${order.finalPrice}">Price</td>
+    <div class="users-container">
 
-                    <td>
-                        <div class="button">
-                            <button type="submit" name="orderId" th:value="${order.orderId}" formaction="/deleteorder">
-                                Delete
-                            </button>
-                        </div>
-                    </td>
-                </tr>
-
-                </tbody>
-
-            </table>
-            <table class="user-table">
-                <thead>
-                <tr>
-                    <th>User id</th>
-                    <th>Email</th>
-                    <th>Admin</th>
-                    <th>Balance</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="user: ${userList}">
-                    <td th:text="${user.userId}">User</td>
-                    <td th:text="${user.email}">Email</td>
-                    <td th:text="${user.admin}">Admin</td>
-                    <td th:text="${user.balance}">Balance</td>
-                </tr>
-                </tbody>
-            </table>
-        </form>
+        <h1>Users</h1>
+        <table class="user-table">
+            <thead>
+            <tr>
+                <th>User id</th>
+                <th>Email</th>
+                <th>Admin</th>
+                <th>Balance</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user: ${userList}">
+                <td th:text="${user.userId}">User</td>
+                <td th:text="${user.email}">Email</td>
+                <td th:text="${user.admin}">Admin</td>
+                <td th:text="${user.balance}">Balance</td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 </body>
