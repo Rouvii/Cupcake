@@ -18,7 +18,7 @@ public class Top {
 
 
 
-    public Top(String name, int price) {
+    public Top(String top, int topPrice) {
         this.top = top;
         this.topPrice = topPrice;
     }

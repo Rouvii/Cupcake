@@ -1,0 +1,64 @@
+/*********************Adminpage styling *********************/
+
+.banner {
+
+    text-align: start;
+    background-color: #B09F7E;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-decoration: none;
+}
+
+body {
+
+    background-color: #DDAE82;
+    padding: 70px 20px 20px;
+}
+
+.page {
+    text-align: center;
+
+}
+
+.tables {
+    text-align: center;
+
+}
+
+.order-table,
+.user-table {
+    display: inline-block;
+    border-collapse: collapse;
+    border-radius: 7px;
+    font-size: 1.2rem;
+    width: 15%;
+    margin: 0 5px;
+}
+
+.order-table button {
+    color: white;
+    background-color: #ff0048;
+    border-radius: 7px;
+    border-color: #ff0048;
+    white-space: nowrap;
+}
+
+.order-table button:hover {
+    background-color: #570114;
+    border-color: #570114;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .order-table,
+    .user-table {
+        width: 90%;
+        margin: 10px 0;
+    }
+}

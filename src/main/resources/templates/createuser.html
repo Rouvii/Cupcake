@@ -1,22 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
+    <title>Creampies</title>
     <meta charset="UTF-8">
-    <title>Create</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
 </head>
+
+
 <body>
+<div class="page">
 
-<form class="generic-form" method="post">
-  <input type="text" name="username" placeholder="Enter your username"/>
-  <input type="password" name="password1" placeholder="Enter your password"/>
-  <input type="password" name="password2" placeholder="Enter your password again"/>
+    <a href="index.html" class="banner" th:href="@{/}"><h2>Cupcake</h2></a>
 
-  <button type="submit" formaction="/createuser">Create user</button>
-  <div><p th:text="${message}"></p></div>
-</form>
 
-<div>
-  <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">Logout</a>
+
+        <header>
+            <h1>Cream user</h1>
+        </header>
+
+
+    <div class="create">
+
+        <form class="create-form" method="post">
+            <input type="text" name="username" placeholder="Enter Email"/>
+            <input type="password" name="password1" placeholder="Enter your password"/>
+            <input type="password" name="password2" placeholder="Enter your password again"/>
+
+            <button class="btn-ok" type="submit" formaction="/createuser">Create user</button>
+            <div><p th:text="${message}"></p></div>
+        </form>
+    </div>
+    <div>
+        <a class="logout-link" th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">Logout</a>
+    </div>
 </div>
 </body>
 </html>

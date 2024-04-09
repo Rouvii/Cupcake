@@ -1,33 +1,36 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
-<title>Frontpage</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="../public/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Creampies</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/css/login.css" th:href="@{/css/login.css}" rel="stylesheet"/>
 </head>
 
 <body>
+<div class="page">
 
-<div class="login_header">
-<header>
-
-
-</header>
-</div>
+    <a href="index.html" class="banner" th:href="@{/}"><h2>Cupcake</h2></a>
 
 
-<form class="generic-form" method="post">
+    <div class="login-header">
+        <header>
+            <h1>Welcome to CreamPies</h1>
+        </header>
+    </div>
+
+
+    <form class="generic-form" method="post">
         <input type="text" name="email" placeholder="Enter your email"/>
         <input type="password" name="password" placeholder="Enter your password"/>
-        <button class="btn btn-ok" type="submit" formaction="/login">Login</button>
+        <button class="btn-ok" type="submit" formaction="/login">Login</button>
         <div><p class="error" th:unless="${#strings.isEmpty(message)}" th:text="${message}"></p></div>
-</form>
-<div>
-        <a th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">Logout</a>
-        <span  th:if="${session.currentUser != null}"> | </span>
-        <a href="createuser.html" th:href="@{/createuser}">Create user</a>
+    </form>
+    <div>
+        <a class="logout-link" th:if="${session.currentUser != null}" href="index.html" th:href="@{/logout}">Logout</a>
+        <span th:if="${session.currentUser != null}"> | </span>
+        <a class="create-link" href="createuser.html" th:href="@{/createuser}">Create user</a>
+    </div>
 </div>
-
 </body>
 </html>

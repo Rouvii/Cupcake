@@ -68,7 +68,8 @@ public class UserController
             ctx.sessionAttribute("currentUser", user);
             // Hvis ja, send videre til forsiden med login besked
             ctx.attribute("message", "Du er nu logget ind");
-            ctx.render("index.html");
+            ctx.redirect("/menupage");
+
         }
         catch (DatabaseException e)
         {
