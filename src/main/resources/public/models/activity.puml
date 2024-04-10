@@ -1,0 +1,72 @@
+@startuml
+
+start
+:Enter username;
+:Enter password;
+if (Action: Login) then (Yes)
+  if (Check if user exists) then (Yes)
+    :Map data;
+    :Display site with tops and bottoms;
+    :Choose combination;
+    if (Action: Add to cart) then (Yes)
+      :Map data;
+    endif
+    repeat
+      :Display site with tops and bottoms;
+      :Choose combination;
+      if (Action: Add to cart) then (Yes)
+        :Map data;
+      endif
+    repeat while (customer wants more cupcakes)
+    :Action: Go to payment;
+    :Render payment site;
+  else (No)
+    :Display error message;
+    :Action create user;
+    :Redirect to create user page;
+    :Enter username;
+    :Enter password;
+    :Map data;
+    :Create user;
+    :Redirect to login page;
+    --> :Enter username;
+  endif
+else (No)
+  :Action create user;
+  :Redirect to create user page;
+  :Enter username;
+  :Enter password;
+  :Map data;
+  :Create user;
+  :Redirect to login page;
+    :Enter username;
+    :Enter password;
+
+  :Map data;
+  if (Check if user exists) then (Yes)
+    :Map data;
+    :Display site with tops and bottoms;
+    :Choose combination;
+    if (Action: Add to cart) then (Yes)
+      :Map data;
+    endif
+    repeat
+      :Display site with tops and bottoms;
+      :Choose combination;
+      if (Action: Add to cart) then (Yes)
+        :Map data;
+      endif
+    repeat while (customer wants more cupcakes)
+    :Action: Go to payment;
+    :Render payment site;
+  else (No)
+    :Display error message;
+    :Action create user;
+    :Render login page;
+    -->Enter username;
+
+  endif
+endif
+stop
+
+@enduml
