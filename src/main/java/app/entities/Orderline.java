@@ -12,6 +12,8 @@ public class Orderline {
     private int quantity;
     private int totalPrice;
 
+    private int orderId;
+
 
     public Orderline(int orderlineId, int topId, int bottomId, int quantity, int totalPrice) {
         this.orderlineId = orderlineId;
@@ -21,11 +23,21 @@ public class Orderline {
         this.totalPrice = totalPrice;
     }
 
-    public Orderline(int topId,int bottomId,int quantity){
-        this.topId=topId;
-        this.bottomId=bottomId;
-        this.quantity=quantity;
+    public Orderline(int orderlineId, int topId, int bottomId, int quantity, int totalPrice, int orderId) {
+        this.orderlineId = orderlineId;
+        this.topId = topId;
+        this.bottomId = bottomId;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+        this.orderId = orderId;
     }
+
+    public Orderline(int topId, int bottomId, int quantity) {
+        this.topId = topId;
+        this.bottomId = bottomId;
+        this.topId = topId;
+    }
+
     public int getOrderlineId() {
         return orderlineId;
     }
@@ -65,5 +77,4 @@ public class Orderline {
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
-
 }
