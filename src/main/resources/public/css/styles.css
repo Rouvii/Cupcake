@@ -103,9 +103,29 @@ body {
     text-align: center;
     padding: 20px;
     border-radius: 10px;
+    width: 30%;
+}
 
+.form-group-basket {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.form-group-basket-totalpris{
+
+    border: solid red 1px;
+    padding-top: 50%;
+    padding-right: 65%;
+    margin: auto;
 
 }
+
 
 .form-group-menupage {
     margin-bottom: 10px;
@@ -135,4 +155,11 @@ body {
 
 .order-container-menupage{
     color: black;
+}
+
+.container-wrapper-menupage{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
 }

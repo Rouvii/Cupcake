@@ -23,6 +23,12 @@ public class Top {
         this.topPrice = topPrice;
     }
 
+
+
+    public int calculateTopPrice(int quantity) {
+        return this.topPrice * quantity;
+    }
+
     public int getTopId() {
         return topId;
     }

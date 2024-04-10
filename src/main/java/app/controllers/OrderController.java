@@ -1,24 +1,26 @@
  package app.controllers;
 import app.entities.*;
-import app.exceptions.DatabaseException;
 import app.persistence.*;
 import io.javalin.Javalin;
 import io.javalin.http.Context;
-
 import java.util.ArrayList;
 import java.util.List;
 
-
-public class OrderController {
-
-    public static void addRoutes(Javalin app, ConnectionPool connectionPool)
-    {
+ public class OrderController {
+private static Cart cart1 = new Cart();
+     private static List<String> cart =new ArrayList<>();
+    public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
 
         app.get("menupage", ctx -> menupage(ctx, connectionPool));
+        app.post("/order",ctx->addToCart(ctx,connectionPool));
+        app.get("/betaling", ctx -> ctx.render("/overview.html"));
+
     }
 
-    private static void menupage(Context ctx, ConnectionPool connectionPool)
-    {
+
+    private static void menupage(Context ctx, ConnectionPool connectionPool) {
+
+
         User user = ctx.sessionAttribute("currentUser");
         try{
 
@@ -32,6 +34,43 @@ public class OrderController {
 
 
     }
+
+     private static void addToCart(Context ctx,ConnectionPool connectionPool){
+         String top = ctx.formParam("top");
+         String bottom = ctx.formParam("bottom");
+         int quantity = Integer.parseInt(ctx.formParam("quantity"));
+        try {
+
+            int topId = TopMapper.getTopIdFromName(top,connectionPool);
+            int bottomId = BottomMapper.getBottomIdFromName(bottom,connectionPool);
+
+
+            int topPrice = TopMapper.getTopPriceFromDatabase(topId, connectionPool);
+            int bottomPrice = BottomMapper.getBottomPriceFromDatabase(bottomId, connectionPool);
+            // Beregner den samlede pris for cupcaken baseret på de valgte top og bottom samt mængden
+            int totalPriceOfCupcake = (topPrice + bottomPrice) * quantity;
+
+            int totalPriceOfCart = Cart.calculateTotalPrice(cart1.getCartItems(), connectionPool);
+
+
+            // Opretter en string af en cupcake med dens top,bund og antal
+            String cupcake = "Top: " + top + ", Bottom: " + bottom + ", Quantity: " + quantity + ", Total price: " + totalPriceOfCupcake + " kr";
+            cart1.addToCart(new Orderline(topId, bottomId, quantity));
+            ctx.sessionAttribute("cartItems", cart1.getCartItems());
+            // Tilføjer cupcaken til indkøbskurvens liste over cupcakes
+            cart.add(cupcake);
+            ctx.attribute("totalPrice", totalPriceOfCart);
+            ctx.attribute("cart", cart);
+            allTops(ctx, connectionPool);
+            allBottoms(ctx, connectionPool);
+            // Rendrer siden menupage med de opdaterede data
+            ctx.render("menupage");
+        }catch (NumberFormatException e){
+            e.getMessage();
+        }
+     }
+
+
 
     public void deleteOrderlines(Orderline orderline, Context ctx) {
 
@@ -76,7 +115,7 @@ public class OrderController {
         Cart cart = ctx.sessionAttribute("cart");
         if (cart != null) {
             ctx.attribute("orderlineArrayList", cart.getCartItems());
-            ctx.render("payment.html");
+            ctx.render("/overview.html");
         }
     }
 }

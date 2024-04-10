@@ -1,7 +1,12 @@
 package app.entities;
 
+import app.persistence.BottomMapper;
+import app.persistence.TopMapper;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Daniel Rouvillain
@@ -24,32 +29,19 @@ public class Cart {
 
         cartItems.remove(orderline);
     }
-    /*
-    public double getTotalPrice(){
 
-        double sum = 0;
+
+    public static int calculateTotalPrice(List<Orderline> cartItems, ConnectionPool connectionPool) {
+        int totalPrice = 0;
 
         for (Orderline cartItem : cartItems) {
-            sum = sum + cartItem.getQuantity() * (cartItem.getTops().getTop_price() + cartItem.getBottoms().getBottom_price());
+            int topPrice = TopMapper.getTopPriceFromDatabase(cartItem.getTopId(), connectionPool);
+            int bottomPrice = BottomMapper.getBottomPriceFromDatabase(cartItem.getBottomId(), connectionPool);
+            totalPrice += (topPrice + bottomPrice) * cartItem.getQuantity();
         }
 
-        return sum;
+
+        return totalPrice;
     }
-
-    public Order createOrders(User user) {
-
-        Order orders = new Order(user.getId(), orderDate, false, user.getId());
-        return orders;
-    }
-
-    public List<Orderline> moveCartItemsToOrderlines(Order orders) {
-        List<Orderline> orderlines = new ArrayList<>();
-        for (Orderline item : cartItems) {
-            item.setOrderid(orders.getId());
-            orderlines.add(item);
-        }
-        cartItems.clear();
-        return orderlines;
-    }*/
 }
 

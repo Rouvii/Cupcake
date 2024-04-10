@@ -21,6 +21,11 @@ public class Orderline {
         this.totalPrice = totalPrice;
     }
 
+    public Orderline(int topId,int bottomId,int quantity){
+        this.topId=topId;
+        this.bottomId=bottomId;
+        this.quantity=quantity;
+    }
     public int getOrderlineId() {
         return orderlineId;
     }
@@ -60,4 +65,5 @@ public class Orderline {
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
     }
+
 }

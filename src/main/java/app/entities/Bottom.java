@@ -20,6 +20,10 @@ public class Bottom {
         this.bottomPrice = bottomPrice;
     }
 
+    public int calculateBottomPrice(int quantity) {
+        return this.bottomPrice * quantity;
+    }
+
     public int getBottomId() {
         return bottomId;
     }
@@ -31,6 +35,8 @@ public class Bottom {
     public int getBottomPrice() {
         return bottomPrice;
     }
+
+
 
 
 }
