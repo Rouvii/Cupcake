@@ -22,6 +22,12 @@ public class Order {
         this.finalPrice = finalPrice;
     }
 
+    public Order(int orderId, int userId, int finalPrice) {
+        this.orderId = orderId;
+        this.userId = userId;
+        this.finalPrice = finalPrice;
+    }
+
     public int getOrderId() {
         return orderId;
     }
@@ -52,5 +58,16 @@ public class Order {
 
     public void setFinalPrice(int finalPrice) {
         this.finalPrice = finalPrice;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "orderId=" + orderId +
+                ", userId=" + userId +
+                ", orderlineId=" + orderlineId +
+                ", finalPrice=" + finalPrice +
+                '}';
     }
 }

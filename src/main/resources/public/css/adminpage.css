@@ -1,0 +1,92 @@
+/*********************Adminpage styling *********************/
+
+.banner {
+
+    text-align: start;
+    background-color: #B09F7E;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-decoration: none;
+}
+
+
+
+body {
+
+    background-color: #DDAE82;
+    padding: 20px;
+}
+
+.container-wrapper {
+    display: flex;
+}
+
+
+
+
+.admin-container {
+    color: white;
+    width: 45%;
+    max-width: 800px;
+    margin: 100px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.users-container {
+
+    color: white;
+    width: 45%;
+    max-width: 800px;
+    margin: 100px auto;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.user-table {
+    width: 100%;
+    padding: 10px;
+    position: -ms-device-fixed;
+    text-align: center;
+}
+.order-table {
+    width: 100%;
+    padding: 10px;
+    position: -ms-device-fixed;
+    text-align: center;
+}
+
+.order-table button {
+    width: 50%;
+    padding: 10px;
+    background-color: #B09F7E;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-table button:hover {
+    background-color: #B09F7E;
+    border-color: #B09F7E;
+    border-radius: 7px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 768px) {
+    .order-table,
+    .user-table {
+        width: 90%;
+        margin: 10px 0;
+    }
+}
