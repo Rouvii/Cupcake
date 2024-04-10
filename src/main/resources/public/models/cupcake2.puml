@@ -1,0 +1,76 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class AdminController {
+}
+
+class OrderController {
+}
+
+class Order {
+}
+
+class User {
+}
+
+class Cart {
+}
+
+class Orderline {
+}
+
+class Top {
+}
+
+class Bottom {
+}
+
+class OrderMapper {
+}
+
+class UserMapper {
+}
+
+class TopMapper {
+}
+
+class BottomMapper {
+}
+
+
+class User
+class Top
+class Bottom
+class Order
+class Orderline
+class Cart
+class AdminController
+class OrderController
+class ConnectionPool
+class UserMapper
+class OrderMapper
+class OrderlineMapper
+class TopMapper
+class BottomMapper
+
+User "1" -- "*" Order
+Order "1" -- "*" Orderline
+Orderline "1" -- "1" Top
+Orderline "1" -- "1" Bottom
+Cart "1" -- "*" Orderline
+Order "*"--*"*" UserMapper
+Order "*"--*"*"OrderMapper
+Order "*"--*"*" OrderlineMapper
+Top "*"--*"*" TopMapper
+Bottom "*"--*"*" BottomMapper
+
+AdminController -- ConnectionPool
+OrderController -- ConnectionPool
+UserMapper -- ConnectionPool
+OrderMapper -- ConnectionPool
+OrderlineMapper -- ConnectionPool
+TopMapper -- ConnectionPool
+BottomMapper -- ConnectionPool
+
+
+@enduml
