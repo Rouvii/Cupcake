@@ -29,7 +29,7 @@
                 <select name="bottom" id="bottom">
                     <option th:each="bottom : ${bottomsList}"
                             th:value="${bottom.bottom}"
-                            th:text="${bottom.bottom}"></option>
+                            th:text="${bottom.bottom} + ' - ' + ${bottom.bottomPrice + ' kr'}"></option>
                 </select>
             </div>
             <div class="form-group-menupage">
@@ -37,7 +37,7 @@
                 <select name="top" id="top">
                     <option th:each="top : ${topList}"
                             th:value="${top.top}"
-                            th:text="${top.top}"></option>
+                            th:text="${top.top} + ' - ' + ${top.topPrice + ' kr'}"></option>
                 </select>
             </div>
             <div class="form-group-menupage">
@@ -45,6 +45,19 @@
                 <input type="number" name="quantity" id="quantity" min="1" value="1">
             </div>
             <input type="submit" value="Tilføj til kurv">
+        </form>
+    </div>
+    <div class="form-group-basket">
+        <h2>Indkøbskurv</h2>
+        <ul>
+            <li th:each="item : ${cart}" th:text="${item}"></li>
+        </ul>
+
+       <ul class="form-group-basket-totalpris">
+           <p>Total pris: <span th:text="${totalPrice}"></span> kr</p>
+       </ul>
+        <form action="/betaling" method="get">
+            <button type="submit">Gå til betaling</button>
         </form>
     </div>
 </div>

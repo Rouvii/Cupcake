@@ -101,7 +101,10 @@ body {
 
 
 
-
+    border: solid red 1px;
+    padding-top: 50%;
+    padding-right: 65%;
+    margin: auto;
 
 
 
@@ -110,4 +113,5 @@ body {
     margin-bottom: 20px;
     padding-bottom: 50px;
 }
+
 
