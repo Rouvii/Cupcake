@@ -99,19 +99,34 @@ body {
     display: table-row;
 }
 
-
-
-    border: solid red 1px;
-    padding-top: 50%;
-    padding-right: 65%;
-    margin: auto;
-
-
-
 .login_header {
     border: solid red 1px;
     margin-bottom: 20px;
     padding-bottom: 50px;
+}
+
+.form-group-basket {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 30%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.form-group-basket-totalpris{
+    padding-top: 50%;
+    padding-right: 65%;
+    margin: auto;
+
+}
+.container-wrapper-menupage{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 80%;
 }
 
 
