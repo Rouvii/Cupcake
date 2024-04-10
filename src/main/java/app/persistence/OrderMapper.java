@@ -49,32 +49,7 @@ public class OrderMapper {
 
 
     }
-/*
-    public static void deleteOrder(int orderId, ConnectionPool connectionPool) throws DatabaseException {
-        String deleteOrderSql = "DELETE FROM \"order\" WHERE order_id = ?";
-        String deleteOrderlineSql = "DELETE FROM orderline WHERE fk_order_id = ?";
 
-        try (
-                Connection connection = connectionPool.getConnection();
-                PreparedStatement deleteOrderStatement = connection.prepareStatement(deleteOrderSql);
-                PreparedStatement deleteOrderlineStatement = connection.prepareStatement(deleteOrderlineSql)
-        ) {
-            deleteOrderStatement.setInt(1, orderId);
-            deleteOrderStatement.executeUpdate();
-
-
-            deleteOrderlineStatement.setInt(1, orderId);
-            int rowsAffected = deleteOrderlineStatement.executeUpdate();
-
-            if (rowsAffected != 1) {
-                throw new DatabaseException("Failed to delete order");
-            }
-        } catch (SQLException e) {
-            throw new DatabaseException("Error deleting order: " + e.getMessage());
-        }
-    }
-
-*/
     public static void deleteOrder(int orderId, ConnectionPool connectionPool) throws DatabaseException {
 
         String deleteOrderSql = "DELETE FROM \"order\" WHERE order_id = ?";
